@@ -1,24 +1,12 @@
+import { countsAsYes } from '../utils.js';
 
-
-
-
-
-
-// IMPORT MODULES under test here:
-// import { example } from '../example.js';
-
-// const test = QUnit.test;
-
-// test('time to test a function', (expect) => {
-    //Arrange
-    // Set up your arguments and expectations
-   // const expected = true;
+const test = QUnit.test;
     
-    //Act 
-    // Call the function you're testing and set the result to a const
-  //  const actual = true;
+test('take string and return true if it starts with y/Y, otherwise false', (expect) => {
+    const expected = true;
+    const actual = countsAsYes('yes');
 
-    //Expect
-    // Make assertions about what is expected versus the actual result
-    // expect.equal(actual, expected);
-// });
+    expect.equal(actual, expected, 'yes returns true');
+    expect.equal(countsAsYes('yesss'), true, 'yesss returns true');
+    expect.equal(countsAsYes('Nah'), false, 'Nah returns false');
+});
