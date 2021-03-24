@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 
-import { countsAsYes } from '../utils.js';
+import { countsAsYes } from './utils.js';
 
 const quizStartButton = document.getElementById('quiz-start-button');
 const testResults = document.getElementById('test-results');

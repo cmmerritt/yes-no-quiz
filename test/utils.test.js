@@ -1,4 +1,4 @@
-import { countsAsYes } from './utils.js';
+import { countsAsYes } from '../utils.js';
 
 const test = QUnit.test;
     
