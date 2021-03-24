@@ -1,7 +1,9 @@
 // import functions and grab DOM elements
 
+import { countsAsYes } from '../utils.js';
+
 const quizStartButton = document.getElementById('quiz-start-button');
-// const Name = 
+const testResults = document.getElementById('test-results');
 
 // initialize state
 
@@ -9,7 +11,28 @@ const quizStartButton = document.getElementById('quiz-start-button');
 
 quizStartButton.addEventListener('click', () => {
     alert('Welcome to the quiz!');
-    confirm('Do you want to start the quiz?');
-    prompt('What is your name?');
-    // prompt('Did the Giganotosaurus live in present-day Italy?');
+    
+    const takeTheQuiz = confirm('Do you want to start the quiz?');
+    if (!takeTheQuiz) {
+        alert('OK! Explore the site, but stay away from big teeth.');
+        return;
+    }
+
+    const name = prompt('What is your name?');
+
+    let score = 0;
+
+    const answerOne = prompt('Did the Giganotosaurus live in present-day Italy?');
+    if (!countsAsYes(answerOne)) score++;
+
+    const answerTwo = prompt('Was the Giganotosaurus larger than the T. rex?');
+    if (countsAsYes(answerTwo)) score++;
+
+    const answerThree = prompt('Was the Giganotosaurus an herbivore?');
+    if (!countsAsYes(answerThree)) score++;
+
+    const userResults = `Greetings, ${name}. Your score is ${score} out of 3.`;
+
+    testResults.textContent = userResults;
+
 });
