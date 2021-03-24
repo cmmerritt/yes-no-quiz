@@ -10,6 +10,7 @@ const testResults = document.getElementById('test-results');
 // set event listeners to update state and DOM
 
 quizStartButton.addEventListener('click', () => {
+    console.log('button clicked');
     alert('Welcome to the quiz!');
     
     const takeTheQuiz = confirm('Do you want to start the quiz?');
